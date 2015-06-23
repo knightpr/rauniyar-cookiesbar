@@ -1,5 +1,6 @@
 #jQuery Cookies bar plugin
-@author Pramod Rauniyar 
+Pramod Rauniyar 
+
 ##Description 
 This is simple jquery plugin to show the cookies bar on the top of the page.
 ###Dependecy
