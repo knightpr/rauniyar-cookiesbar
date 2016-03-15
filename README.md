@@ -1,13 +1,7 @@
 #jQuery Cookies bar plugin
-Pramod Rauniyar 
 
 ##Description 
-This is simple jquery plugin to show the cookies bar on the top of the page.
-###Dependecy
-It depends on the JQUERY plug in, so before using this, make sure you have jquery libarary is loaded. 
-
-###usages
-> $.cookiesBar();
+This is simple jquery plugin to show the cookies bar. One can customize the setting options as described below:
 
 ###default settings
 
@@ -30,8 +24,18 @@ It depends on the JQUERY plug in, so before using this, make sure you have jquer
       onScrollAccept: false
      }
   		
-##customize your cookies bar
+##Example customize your cookies bar
 	 $.cookiesBar({
 					 background:'blue',
 					 fontColor:'#eee'
 				 });
+
+###Dependecy
+It depends on the JQUERY plug in, so before using this, make sure you have jquery libarary is loaded. 
+
+###usages
+> $.cookiesBar();
+
+###Install via bower
+> bower install rauniyar-cookiesbar 
+

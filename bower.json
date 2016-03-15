@@ -1,0 +1,25 @@
+{
+  "name": "rauniyar-cookiesbar",
+  "authors": [
+    "pramod.rauniyar@gmail.com <pramod.rauniyar@gmail.com>"
+  ],
+  "description": "jquery plugin for cookiesbar",
+  "main": "",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "cookiesbar",
+    "jquery",
+    "rauniyar"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
