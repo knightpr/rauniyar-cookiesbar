@@ -27,14 +27,18 @@
             btnColor: '#222',
             btnText : 'Got it!',
             fadeOutTime: 1000,
-            text: 'Cookies help us deliver our services. By using our services, you agree to our use of cookies.'
+            text: 'Cookies help us deliver our services. By using our services, you agree to our use of cookies.',
+            position: 'relative',
+           'zindex': 'initial',
+            top:'0',
+            onScrollAccept: false
  		}, options );
 
 		//method to render the cookies bar on the top of the page
 		var renderingCookiesBar = function(){
-			var $template = '<div id="eai_cookies_bar">'+settings.text+' <a href='+settings.privacyURL+' target="_blank" style="color:#ddd">Learn more</a> <a href="#" id="btn_accept_cookies">'+settings.btnText+'</a></div>';
+			var $template = '<div id="app_cookies_bar">'+settings.text+' <a href='+settings.privacyURL+' target="_blank" style="color:#ddd">Learn more</a> <a href="#" id="btn_accept_cookies">'+settings.btnText+'</a></div>';
 			$container.prepend($template);
-			$elementCookieBar = $('#eai_cookies_bar');
+			$elementCookieBar = $('#app_cookies_bar');
 			$elementAcceptBtn = $('#btn_accept_cookies');
 
 			//styling the cookies bar
@@ -44,7 +48,11 @@
 				   'background': settings.background,
 				   'border-radius' : settings.borderRadius,
 				   'padding': settings.padding,
-				   'text-align' : settings.textAlign
+				   'text-align' : settings.textAlign,
+				   'position' : settings.position,
+				   'z-index' : settings.zindex,
+				   'top': settings.top,
+
 			});
 			//styling the acceopt button
 			$elementAcceptBtn.css({
@@ -62,6 +70,7 @@
 			    d.setTime(d.getTime() + (exdays*24*60*60*1000));
 			    var expires = "expires=" + d.toGMTString();
 			    document.cookie = cname+"="+cvalue+"; "+expires;
+			    return false;
 
         };
         //method to get cookies
@@ -82,9 +91,11 @@
 		var bindEvents = function(){
 
 			//accept click button 
-			$elementAcceptBtn.click(function() {
-		    	setCookieAccept('eai-cookies-status','accepted',365);
+			$elementAcceptBtn.click(function(event) {
+		    	setCookieAccept('app-cookies-status','accepted',365);
 		    	$elementCookieBar.fadeOut(settings.fadeOutTime);
+		    	event.stopImmediatePropagation();
+		    	return false;
 			});
 			//mouseover on the accept button 
 			$elementAcceptBtn.mouseover(function(){
@@ -96,10 +107,24 @@
 
 				$(this).css('background',settings.btnBackground);
 			});
+
+			$(window).scroll(function(){
+
+				if(settings.onScrollAccept){
+				 	var check_cookie =  getCookieStatus('app-cookies-status');
+	            	if(check_cookie !== 'accepted'){
+					    setCookieAccept('app-cookies-status','accepted',365);
+				    	$elementCookieBar.fadeOut(settings.fadeOutTime);
+				    	event.stopImmediatePropagation();
+				    	return false;
+					}
+				}
+			   
+			});
 		};
 		//initalizing the cookiesBar
 		var init = function(){
-            var check_cookie =  getCookieStatus('eai-cookies-status');
+            var check_cookie =  getCookieStatus('app-cookies-status');
             if(check_cookie !== 'accepted'){
 				renderingCookiesBar();
 				bindEvents();
