@@ -38,7 +38,7 @@
 
 		//method to render the cookies bar on the top of the page
 		var renderingCookiesBar = function(){
-			var $template = '<div id="app_cookies_bar">'+settings.text+' <a href='+settings.privacyURL+' target="_blank" style="color:#'+settings.linkcolor+'">'+settings.linkMoreText+'</a> <a href="#" id="btn_accept_cookies">'+settings.btnText+'</a></div>';
+			var $template = '<div id="app_cookies_bar">'+settings.text+' <a href='+settings.privacyURL+' target="_blank" style="color:'+settings.linkcolor+'">'+settings.linkMoreText+'</a> <a href="#" id="btn_accept_cookies">'+settings.btnText+'</a></div>';
 			$container.prepend($template);
 			$elementCookieBar = $('#app_cookies_bar');
 			$elementAcceptBtn = $('#btn_accept_cookies');
