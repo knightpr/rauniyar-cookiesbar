@@ -33,7 +33,7 @@
             top:'0',
             onScrollAccept: false,
             linkcolor:'#444',
-            linkMoreText:'Lear More'
+            linkMoreText:'Learn More'
  		}, options );
 
 		//method to render the cookies bar on the top of the page
